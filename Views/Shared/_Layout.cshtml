@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Livraria Leitura Fácil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" asp-controller="Home" asp-action="Index">
+                <i class="bi bi-book-half fs-4 text-warning"></i>
+                <span class="fw-bold">Leitura Fácil</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
+                            <i class="bi bi-house me-1"></i>Início
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Produto" asp-action="Catalogo">
+                            <i class="bi bi-grid me-1"></i>Catálogo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Produto" asp-action="Gerenciar">
+                            <i class="bi bi-gear me-1"></i>Gerenciar
+                        </a>
+                    </li>
+                </ul>
+                <a asp-controller="Carrinho" asp-action="Index" class="btn btn-warning position-relative d-flex align-items-center gap-2">
+                    <i class="bi bi-cart3 fs-5"></i>
+                    <span>Carrinho</span>
+                    @if ((ViewBag.TotalItensCarrinho ?? 0) > 0)
+                    {
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            @ViewBag.TotalItensCarrinho
+                        </span>
+                    }
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    @if (TempData["Sucesso"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show mb-0 rounded-0" role="alert">
+            <div class="container">
+                <i class="bi bi-check-circle-fill me-2"></i>@TempData["Sucesso"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    }
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show mb-0 rounded-0" role="alert">
+            <div class="container">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>@TempData["Erro"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    }
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="footer-custom mt-5 py-4">
+        <div class="container text-center">
+            <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                <i class="bi bi-book-half text-warning fs-5"></i>
+                <span class="fw-bold text-white">Livraria Leitura Fácil</span>
+            </div>
+            <p class="text-muted small mb-0">
+                Projeto Acadêmico &mdash; Projeto e Modelagem de Sistemas de Software &copy; 2026
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

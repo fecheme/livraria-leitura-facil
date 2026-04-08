@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "ZY66536HJpr+FDGhNfFO2OKyWG3vfwg4nvFcxnIXtcE=",
+  "Source": "LeituraFacil",
+  "BasePath": "_content/LeituraFacil",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LeituraFacil\\wwwroot",
+      "Source": "LeituraFacil",
+      "ContentRoot": "C:\\Users\\cheme\\LeituraFacil\\wwwroot\\",
+      "BasePath": "_content/LeituraFacil",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\cheme\\LeituraFacil\\wwwroot\\css\\site.css",
+      "SourceId": "LeituraFacil",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\cheme\\LeituraFacil\\wwwroot\\",
+      "BasePath": "_content/LeituraFacil",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    }
+  ]
+}
